@@ -40,12 +40,12 @@ st.title("Customer Segmentation App")
 st.write("Enter customer details to predict the segment.")
 
 
-age = st.number_input("Age", min=18, max=100, default=35)
-income = st.number_input("Income", min=0, max=200000, default=50000)
-total_spending = st.number_input("Total Spending", min=0, max=5000, default=1000)
-num_web_purchases = st.number_input("Number of Web Purchases", min=0, max=100, default=10)
-num_store_purchases = st.number_input("Number of Store Purchases", min=0, max=100, default=10)
-num_web_visits = st.number_input("Number of Web Visits per Month", min=0, max=50, default=3)
+age = st.number_input("Age", min_value=18, max_value=100, value=35)
+income = st.number_input("Income", min_value=0, max_value=200000, value=50000)
+total_spending = st.number_input("Total Spending", min_value=0, max_value=5000, value=1000)
+num_web_purchases = st.number_input("Number of Web Purchases", min_value=0, max_value=100, value=10)
+num_store_purchases = st.number_input("Number of Store Purchases", min_value=0, max_value=100, value=10)
+num_web_visits_month = st.number_input("Number of Web Visits per Month", min_value=0, max_value=50, value=3)
 
 input_data = pd.DataFrame({
     'Age': [age],
@@ -53,7 +53,7 @@ input_data = pd.DataFrame({
     'Total_Spending': [total_spending],
     'NumWebPurchases': [num_web_purchases], 
     'NumStorePurchases': [num_store_purchases], 
-    'NumWebVisits': [num_web_visits]
+    'NumWebVisitsMonth': [num_web_visits_month]
     })
 
 input_scaled = scaler.transform(input_data)
